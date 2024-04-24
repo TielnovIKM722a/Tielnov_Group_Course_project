@@ -1,0 +1,10 @@
+C:\Users\Alex\source\repos\IKM722a\Tielnov_Group_Course_project\bin\Debug\Tielnov_Group_Course_project.exe.config
+C:\Users\Alex\source\repos\IKM722a\Tielnov_Group_Course_project\bin\Debug\Tielnov_Group_Course_project.exe
+C:\Users\Alex\source\repos\IKM722a\Tielnov_Group_Course_project\bin\Debug\Tielnov_Group_Course_project.pdb
+C:\Users\Alex\source\repos\IKM722a\Tielnov_Group_Course_project\obj\Debug\Tielnov_Group_Course_project.csproj.AssemblyReference.cache
+C:\Users\Alex\source\repos\IKM722a\Tielnov_Group_Course_project\obj\Debug\Tielnov_Group_Course_project.Form1.resources
+C:\Users\Alex\source\repos\IKM722a\Tielnov_Group_Course_project\obj\Debug\Tielnov_Group_Course_project.Properties.Resources.resources
+C:\Users\Alex\source\repos\IKM722a\Tielnov_Group_Course_project\obj\Debug\Tielnov_Group_Course_project.csproj.GenerateResource.cache
+C:\Users\Alex\source\repos\IKM722a\Tielnov_Group_Course_project\obj\Debug\Tielnov_Group_Course_project.csproj.CoreCompileInputs.cache
+C:\Users\Alex\source\repos\IKM722a\Tielnov_Group_Course_project\obj\Debug\Tielnov_Group_Course_project.exe
+C:\Users\Alex\source\repos\IKM722a\Tielnov_Group_Course_project\obj\Debug\Tielnov_Group_Course_project.pdb
