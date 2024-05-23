@@ -8,7 +8,7 @@ namespace Tielnov_Group_Course_project.CourseWork
 {
      class MajorWork
     {
-        
+        private System.DateTime TimeBegin; // час початку роботи програми
         private string Data; //вхідні дані
         private string Result; // Поле результату
                                // Методи
@@ -20,6 +20,7 @@ namespace Tielnov_Group_Course_project.CourseWork
         {
             return this.Result;// метод відображення результату
         }
+
         public void Task() // метод реалізації програмного завдання
         {
             if (this.Data.Length > 5)
@@ -31,6 +32,16 @@ namespace Tielnov_Group_Course_project.CourseWork
             {
                 this.Result = Convert.ToString(false);
             }
+        }
+
+        public void SetTime() // метод запису часу початку роботи програми
+        {
+            this.TimeBegin = System.DateTime.Now;
+        }
+
+        public System.DateTime GetTime() // Метод отримання часу завершення програми
+        {
+            return this.TimeBegin;
         }
     }
 }
