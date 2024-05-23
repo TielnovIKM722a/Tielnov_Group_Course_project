@@ -12,6 +12,10 @@ namespace Tielnov_Group_Course_project.CourseWork
         private string Data; //вхідні дані
         private string Result; // Поле результату
                                // Методи
+        private string SaveFileName;// ім’я файлу для запису
+        private string OpenFileName;// ім’я файлу для читання
+
+
         public void Write(string D)// метод запису даних в об'єкт.
         {
             this.Data = D;
@@ -42,6 +46,15 @@ namespace Tielnov_Group_Course_project.CourseWork
         public System.DateTime GetTime() // Метод отримання часу завершення програми
         {
             return this.TimeBegin;
+        }
+
+        public void WriteSaveFileName(string S)// метод запису даних в об'єкт
+        {
+            this.SaveFileName = S;// запам'ятати ім’я файлу для запису
+        }
+        public void WriteOpenFileName(string S)
+        {
+            this.OpenFileName = S;// запам'ятати ім’я файлу для відкриття
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tielnov_Group_Course_project.CourseWork;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Tielnov_Group_Course_project
 {
@@ -47,7 +48,8 @@ namespace Tielnov_Group_Course_project
                 tClock.Start();
                 bStart.Text = "Стоп";
                 this.Mode = false;
-                
+                пускToolStripMenuItem.Text = "Стоп";
+
             } 
             else {
                 tbInput.Enabled = false;
@@ -57,6 +59,7 @@ namespace Tielnov_Group_Course_project
                 MajorObject.Write(tbInput.Text);// Запис даних у об'єкт
                 MajorObject.Task();// Обробка даних
                 label1.Text = MajorObject.Read();// Відображення результату
+                пускToolStripMenuItem.Text = "Старт";
             }
         }
 
@@ -82,6 +85,58 @@ namespace Tielnov_Group_Course_project
             MessageBox.Show(s, "Час роботи програми"); // Виведення часу роботи програми і
                                                        // повідомлення "Час роботи програми"
                                                        // на екран
+        }
+
+        private void вихідToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void проПрограToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About A = new About();
+            A.ShowDialog();
+        }
+
+        private void зберегтиЯкToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sfdSave.ShowDialog() == DialogResult.OK)// Виклик діалогового вікна збереження
+                                                        // файлу
+{
+                MessageBox.Show(sfdSave.FileName);
+            }
+        }
+
+        private void відкритиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ofdOpen.ShowDialog() == DialogResult.OK) // Виклик діалогового вікна відкриття           файлу
+
+{
+                MessageBox.Show(ofdOpen.FileName);
+            }
+        }
+
+        private void проНакопичувачіToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] disks = System.IO.Directory.GetLogicalDrives(); // Строковий масив з  логічніх дисків
+            string disk = "";
+            for (int i = 0; i < disks.Length; i++)
+            {
+                try
+                {
+                    System.IO.DriveInfo D = new System.IO.DriveInfo(disks[i]);
+                    disk += D.Name + "-" + (D.TotalSize/1073741824).ToString() + "-" + (D.TotalFreeSpace/1073741824).ToString()
+                    + (char)13;// змінній присвоюється ім’я диска, загальна кількість місця и вільне
+                               // місце на диску
+                }
+                catch
+                {
+                    disk += disks[i] + "- не готовий" + (char)13; // якщо пристрій не готовий,
+                                                                   // то виведення на екран ім’я пристрою і повідомлення «не готовий»
+}
+            }
+
+            MessageBox.Show(disk, "Накопичувачі");
         }
     }
 }
