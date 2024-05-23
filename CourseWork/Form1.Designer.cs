@@ -37,9 +37,10 @@
             // 
             // bStart
             // 
-            this.bStart.Location = new System.Drawing.Point(314, 266);
+            this.bStart.Location = new System.Drawing.Point(236, 216);
+            this.bStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bStart.Name = "bStart";
-            this.bStart.Size = new System.Drawing.Size(158, 65);
+            this.bStart.Size = new System.Drawing.Size(118, 53);
             this.bStart.TabIndex = 0;
             this.bStart.Text = "Пуск";
             this.bStart.UseVisualStyleBackColor = true;
@@ -48,17 +49,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(369, 127);
+            this.label1.Location = new System.Drawing.Point(277, 103);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
             // 
             // tbInput
             // 
-            this.tbInput.Location = new System.Drawing.Point(314, 185);
+            this.tbInput.Enabled = false;
+            this.tbInput.Location = new System.Drawing.Point(236, 150);
+            this.tbInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbInput.Name = "tbInput";
-            this.tbInput.Size = new System.Drawing.Size(158, 22);
+            this.tbInput.Size = new System.Drawing.Size(120, 20);
             this.tbInput.TabIndex = 2;
             this.tbInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbInputKeyPress);
             // 
@@ -69,12 +72,13 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.tbInput);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bStart);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1Load);

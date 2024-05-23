@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tielnov_Group_Course_project.CourseWork;
 
 namespace Tielnov_Group_Course_project
 {
     public partial class Form1 : Form
     {
         private bool Mode;
+        private MajorWork MajorObject; // Створення об'єкта класу MajorWork
 
         public Form1()
         {
@@ -29,6 +31,10 @@ namespace Tielnov_Group_Course_project
         private void Form1Load(object sender, EventArgs e)
         {
             this.Mode = true;
+            MajorObject = new MajorWork();
+            About A = new About(); // створення форми About
+            A.tAbout.Start();
+            A.ShowDialog(); // відображення діалогового вікна About
         }
 
         private void bStartClick(object sender, EventArgs e)
@@ -39,12 +45,16 @@ namespace Tielnov_Group_Course_project
                 tClock.Start();
                 bStart.Text = "Стоп";
                 this.Mode = false;
+                
             } 
             else {
                 tbInput.Enabled = false;
                 tClock.Stop();
                 bStart.Text = "Пуск";
                 this.Mode = true;
+                MajorObject.Write(tbInput.Text);// Запис даних у об'єкт
+                MajorObject.Task();// Обробка даних
+                label1.Text = MajorObject.Read();// Відображення результату
             }
         }
 
