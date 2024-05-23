@@ -52,6 +52,7 @@
     <Compile Include="CourseWork\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="CourseWork\Buffer.cs" />
     <Compile Include="CourseWork\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

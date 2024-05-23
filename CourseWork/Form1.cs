@@ -38,6 +38,7 @@ namespace Tielnov_Group_Course_project
             A.tAbout.Start();
             A.ShowDialog(); // відображення діалогового вікна About
             MajorObject.SetTime();
+            MajorObject.Modify = false;// заборона запису
         }
 
         private void bStartClick(object sender, EventArgs e)
@@ -100,11 +101,12 @@ namespace Tielnov_Group_Course_project
 
         private void зберегтиЯкToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (sfdSave.ShowDialog() == DialogResult.OK)// Виклик діалогового вікна збереження
-                                                        // файлу
-{
-                MessageBox.Show(sfdSave.FileName);
-            }
+            if (sfdSave.ShowDialog() == DialogResult.OK) // Виклик діалогового вікна збереження
+                                                         // файлу
+            {
+                MajorObject.WriteSaveFileName(sfdSave.FileName); // написання імені файлу
+                MajorObject.SaveToFile(); // метод збереження в файл }
+            } 
         }
 
         private void відкритиToolStripMenuItem_Click(object sender, EventArgs e)

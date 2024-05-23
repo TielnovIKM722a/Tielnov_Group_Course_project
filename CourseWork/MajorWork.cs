@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Tielnov_Group_Course_project.CourseWork
 {
@@ -14,7 +17,8 @@ namespace Tielnov_Group_Course_project.CourseWork
                                // Методи
         private string SaveFileName;// ім’я файлу для запису
         private string OpenFileName;// ім’я файлу для читання
-
+        public bool Modify;
+        private int Key;// поле ключа
 
         public void Write(string D)// метод запису даних в об'єкт.
         {
@@ -36,6 +40,7 @@ namespace Tielnov_Group_Course_project.CourseWork
             {
                 this.Result = Convert.ToString(false);
             }
+            this.Modify = true; // Дозвіл запису
         }
 
         public void SetTime() // метод запису часу початку роботи програми
@@ -55,6 +60,35 @@ namespace Tielnov_Group_Course_project.CourseWork
         public void WriteOpenFileName(string S)
         {
             this.OpenFileName = S;// запам'ятати ім’я файлу для відкриття
+        }
+
+        public void SaveToFile()
+        {
+            if (!this.Modify)
+                return;
+            try
+            {
+                Stream S;
+                if (File.Exists(this.SaveFileName))
+                    S = File.Open(this.SaveFileName, FileMode.Append);
+                else
+                    S = File.Open(this.SaveFileName, FileMode.Create);
+                Buffer D = new Buffer();
+                D.Data = this.Data;
+                D.Result = Convert.ToString(this.Result);
+                D.Key = Key;
+                Key++;
+                BinaryFormatter BF = new BinaryFormatter();
+                BF.Serialize(S, D);
+                S.Flush();
+                S.Close();
+                this.Modify = false;
+            }
+            catch
+            {
+
+                MessageBox.Show("Помилка роботи з файлом");
+            }
         }
     }
 }
