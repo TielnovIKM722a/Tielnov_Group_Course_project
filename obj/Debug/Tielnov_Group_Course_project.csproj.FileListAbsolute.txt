@@ -30,3 +30,14 @@ C:\Users\alexs\Source\Repos\Tielnov_Group_Course_projectдєж\obj\Debug\Tielnov
 C:\Users\alexs\Source\Repos\Tielnov_Group_Course_projectдєж\obj\Debug\Tielnov_Group_Course_project.csproj.CoreCompileInputs.cache
 C:\Users\alexs\Source\Repos\Tielnov_Group_Course_projectдєж\obj\Debug\Tielnov_Group_Course_project.exe
 C:\Users\alexs\Source\Repos\Tielnov_Group_Course_projectдєж\obj\Debug\Tielnov_Group_Course_project.pdb
+C:\Users\alexs\Source\Repos\T\bin\Debug\Tielnov_Group_Course_project.exe.config
+C:\Users\alexs\Source\Repos\T\bin\Debug\Tielnov_Group_Course_project.exe
+C:\Users\alexs\Source\Repos\T\bin\Debug\Tielnov_Group_Course_project.pdb
+C:\Users\alexs\Source\Repos\T\obj\Debug\Tielnov_Group_Course_project.csproj.AssemblyReference.cache
+C:\Users\alexs\Source\Repos\T\obj\Debug\Tielnov_Group_Course_project.CourseWork.About.resources
+C:\Users\alexs\Source\Repos\T\obj\Debug\Tielnov_Group_Course_project.Form1.resources
+C:\Users\alexs\Source\Repos\T\obj\Debug\Tielnov_Group_Course_project.Properties.Resources.resources
+C:\Users\alexs\Source\Repos\T\obj\Debug\Tielnov_Group_Course_project.csproj.GenerateResource.cache
+C:\Users\alexs\Source\Repos\T\obj\Debug\Tielnov_Group_Course_project.csproj.CoreCompileInputs.cache
+C:\Users\alexs\Source\Repos\T\obj\Debug\Tielnov_Group_Course_project.exe
+C:\Users\alexs\Source\Repos\T\obj\Debug\Tielnov_Group_Course_project.pdb
