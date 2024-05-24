@@ -112,11 +112,12 @@ namespace Tielnov_Group_Course_project
 
         private void відкритиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (ofdOpen.ShowDialog() == DialogResult.OK) // Виклик діалогового вікна відкриття           файлу
-
-{
-                MessageBox.Show(ofdOpen.FileName);
+            if (ofdOpen.ShowDialog() == DialogResult.OK) // Виклик діалогу відкриття файлу
+            {
+                MajorObject.WriteOpenFileName(ofdOpen.FileName); // відкриття файлу
+                MajorObject.ReadFromFile(dgwOpen); // читання даних з файлу
             }
+
         }
 
         private void проНакопичувачіToolStripMenuItem_Click(object sender, EventArgs e)

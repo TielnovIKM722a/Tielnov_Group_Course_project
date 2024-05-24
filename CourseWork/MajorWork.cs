@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -9,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Tielnov_Group_Course_project.CourseWork
 {
-     class MajorWork
+    class MajorWork
     {
         private System.DateTime TimeBegin; // час початку роботи програми
         private string Data; //вхідні дані
@@ -97,29 +98,44 @@ namespace Tielnov_Group_Course_project.CourseWork
             {
                 if (!File.Exists(this.OpenFileName))
                 {
-                    MessageBox.Show("Файлу немає"); // Виведення на екран повідомлення "файлу немає"
+                    MessageBox.Show("Файлу немає");
                     return;
                 }
-                Stream S; // створення потоку
-                S = File.Open(this.OpenFileName, FileMode.Open); // зчитування даних з   файлу
+                Stream S;
+                S = File.Open(this.OpenFileName, FileMode.Open);
                 Buffer D;
-                object O; // буферна змінна для контролю формату
-                BinaryFormatter BF = new BinaryFormatter(); // створення об'єкту для форматування
+                object O;
+                BinaryFormatter BF = new BinaryFormatter();
+                DataTable MT = new DataTable();
+                DataColumn cKey = new DataColumn("Ключ");
+                DataColumn cInput = new DataColumn("Вхідні дані");
+                DataColumn cResult = new DataColumn("Результат");
+                MT.Columns.Add(cKey);
+                MT.Columns.Add(cInput);
+                MT.Columns.Add(cResult);
 
                 while (S.Position < S.Length)
                 {
-                    O = BF.Deserialize(S); // десеріалізація
+                    O = BF.Deserialize(S);
                     D = O as Buffer;
                     if (D == null) break;
-                    // Виведення даних на екран
+                    DataRow MR;
+                    MR = MT.NewRow();
+                    MR["Ключ"] = D.Key;
+                    MR["Вхідні дані"] = D.Data;
+                    MR["Результат"] = D.Result;
+                    MT.Rows.Add(MR);
                 }
-                S.Close(); // закриття
+                DG.DataSource = MT;
+                S.Close();
             }
             catch
             {
-                MessageBox.Show("Помилка файлу"); // Виведення на екран повідомлення "Помилка файлу"
+                MessageBox.Show("Помилка файлу");
             }
         } // ReadFromFile закінчився
+
+        
 
         public void Generator() // метод формування ключового поля
         {
@@ -163,5 +179,69 @@ namespace Tielnov_Group_Course_project.CourseWork
             this.Data = ""; // "" - ознака порожнього рядка
             this.Result = null; // для string- null
         }
+
+        public void Find(string Num) // пошук
+        {
+            int N;
+            try
+            {
+                N = Convert.ToInt16(Num); // перетворення номера рядка в int16 для
+                                          // відображення
+            }
+            catch
+            {
+                MessageBox.Show("помилка пошукового запиту"); // Виведення на
+                                                              // екран повідомлення "помилка пошукового запиту"
+            
+                return;
+            }
+
+            try
+            {
+                if (!File.Exists(this.OpenFileName))
+                {
+                    MessageBox.Show("файлу немає"); // Виведення на екран повідомлення
+                                                    // "файлу немає"
+                
+                     return;
+                }
+                Stream S; // створення потоку
+                S = File.Open(this.OpenFileName, FileMode.Open); // відкриття файлу
+                Buffer D;
+                object O; // буферна змінна для контролю формату
+                BinaryFormatter BF = new BinaryFormatter(); // створення об'єкта для
+                                                            // форматування
+            
+                while (S.Position < S.Length)
+                {
+                    O = BF.Deserialize(S);
+                    D = O as Buffer;
+                    if (D == null) break;
+                    if (D.Key == N) // перевірка дорівнює чи номер пошуку номеру рядка в
+                                    // таблиці
+
+                    {
+                        string ST;
+                        ST = "Запис містить:" + (char)13 + "No" + Num + "Вхідні дані:" +
+
+                        D.Data + "Результат:" + D.Result;
+
+                        MessageBox.Show(ST, "Запис знайдена"); // Виведення на екран
+                                                               // повідомлення "запис містить", номер, вхідних даних і результат
+
+                        S.Close();
+                        return;
+                    }
+                }
+                S.Close();
+                MessageBox.Show("Запис не знайдена"); // Виведення на екран повідомлення
+                                                      // "Запис не знайдена"
+            }
+            catch
+            {
+                MessageBox.Show("Помилка файлу"); // Виведення на екран повідомлення
+                                                  // "Помилка файлу"
+            }
+        } // Find закінчився
     }
 }
