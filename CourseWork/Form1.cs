@@ -52,13 +52,7 @@ namespace Tielnov_Group_Course_project
         }
 
         private void Form1Load(object sender, EventArgs e)
-        {
-            // отримуємо список СОМ портов системи
-            string[] ports = SerialPort.GetPortNames();
-            foreach (string port in ports)
-            {
-                comboBox1.Items.Add(port);
-            };
+        {        
             this.Mode = true;
             MajorObject = new MajorWork();
             About A = new About(); // створення форми About
@@ -68,6 +62,13 @@ namespace Tielnov_Group_Course_project
             MajorObject.Modify = false;// заборона запису
             toolTip1.SetToolTip(bSearch, "Натисніть на кнопку дляпошуку");
             toolTip1.IsBalloon = true;
+
+            // отримуємо список СОМ портов системи
+            string[] ports = SerialPort.GetPortNames();
+            foreach (string port in ports)
+            {
+                comboBox1.Items.Add(port);
+            };
         }
 
         private void bStartClick(object sender, EventArgs e)
@@ -474,7 +475,6 @@ TXT(*.txt)|*.txt|CSV-файл (*.csv)|*.csv|Bin-файл (*.bin)|*.bin";
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.Text != "")
-
             {
                 groupBox2.Enabled = true;
                 button2.Enabled = true;
