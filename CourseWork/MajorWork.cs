@@ -300,5 +300,6 @@ namespace Tielnov_Group_Course_project.CourseWork
         {
             this.OpenTextFileName = S;
         }
+
     }
 }
