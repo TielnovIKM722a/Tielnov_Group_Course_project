@@ -158,5 +158,10 @@ namespace Tielnov_Group_Course_project
                 MessageBoxButtons.YesNo) == DialogResult.No)
                     e.Cancel = true; // припинити закриття
         }
+
+        private void bSearch_Click(object sender, EventArgs e)
+        {
+            MajorObject.Find(tbSearch.Text);
+        }
     }
 }

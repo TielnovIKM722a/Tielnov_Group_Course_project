@@ -250,6 +250,7 @@
             this.bSearch.TabIndex = 6;
             this.bSearch.Text = "Пошук";
             this.bSearch.UseVisualStyleBackColor = true;
+            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
             // Form1
             // 
