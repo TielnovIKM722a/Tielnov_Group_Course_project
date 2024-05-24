@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -20,6 +21,10 @@ namespace Tielnov_Group_Course_project.CourseWork
         private string OpenFileName;// ім’я файлу для читання
         public bool Modify;
         private int Key;// поле ключа
+        public Stack myStack = new Stack();
+        public string[] myArr = new string[100];
+        public Queue myQueue = new Queue();
+        public string[] smyQueue = new string[100];
 
         public void Write(string D)// метод запису даних в об'єкт.
         {
