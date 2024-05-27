@@ -59,6 +59,7 @@ namespace Tielnov_Group_Course_project.CourseWork
             }
 
             this.Result = sum.ToString();
+            this.Modify = true;
         }
 
 
