@@ -39,17 +39,28 @@ namespace Tielnov_Group_Course_project.CourseWork
 
         public void Task() // метод реалізації програмного завдання
         {
-            if (this.Data.Length > 5)
-            {
-                this.Result = Convert.ToString(true);
+            string[] dataParts = Data.Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-            }
-            else
+            int sum = 0;
+
+            // Сохранить числа в массив:
+            int[] NData = new int[dataParts.Length];
+            for (int i = 0; i < dataParts.Length; i++)
             {
-                this.Result = Convert.ToString(false);
+                NData[i] = int.Parse(dataParts[i]);
             }
-            this.Modify = true; // Дозвіл запису
+
+            int maxIndex = NData.ToList().IndexOf(NData.Max());
+            int minIndex = NData.ToList().IndexOf(NData.Min());
+
+            for (int i = Math.Min(minIndex, maxIndex); i <= Math.Max(minIndex, maxIndex); i++)
+            {
+                sum += NData[i];
+            }
+
+            this.Result = sum.ToString();
         }
+
 
         public void SetTime() // метод запису часу початку роботи програми
         {
